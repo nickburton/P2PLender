@@ -1,0 +1,91 @@
+{
+	"compiler": {
+		"version": "0.8.12+commit.f00d7308"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "enum P2PLoan.Status",
+						"name": "status_",
+						"type": "uint8"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "wallet",
+								"type": "address"
+							}
+						],
+						"internalType": "struct P2PLoan.Lender",
+						"name": "lender_",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "wallet",
+								"type": "address"
+							}
+						],
+						"internalType": "struct P2PLoan.Borrower",
+						"name": "borrower_",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "loanAmount_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint16",
+						"name": "interestRate_",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"P2PLoan.sol": "P2PLoan"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"P2PLoan.sol": {
+			"keccak256": "0xcc2a2d932479b400bec10a43869b12240f5429e2e08e62e9e9f6d62281c3c71a",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://742ad04592acfc26b7ce414909cda50b9496bf8f30e49f76c27c167a0f1541ba",
+				"dweb:/ipfs/QmaGCNvCpTsXjao7ExYx19co4L6c5rFwk8mw4cnVfLorun"
+			]
+		}
+	},
+	"version": 1
+}

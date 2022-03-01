@@ -2,43 +2,26 @@
 
 pragma solidity ^0.8.12;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "hardhat/console.sol";
-import "./P2PLoan.sol";
+import "./P2PLoanFactory.sol";
 
-/// @title A protocol for friends and family to borrow aginst collateral.
-contract P2PLender is Ownable {
+/** 
+ * @title Protocol for friends and family to borrow aginst collateral
+ */
+contract P2PLender is P2PLoanFactory {
 
-    P2PLoan[] private loans;
+    /**
+     * @notice For Borrower to initiate a Loan
+     * @param interestRate Min is 0, Max is 10000 (100%)
+     */
+    function proposeLoan(uint16 interestRate, uint loanAmount, address from, address to) external {
+        _createLoan(interestRate, loanAmount, from, to);
+    }
 
-    /// @param _rate Min is 0, Max is 10000 (100%)
-    function proposeLoan(
-        address _from, 
-        address _to, 
-        uint _amount, 
-        uint16 _rate
-    ) 
-        external 
-    {
+    
+
+    function loanDetail(address from) external view {
 
     }
 
-    function acceptLoan(
-        address _from, 
-        address _to, 
-        uint _amount, 
-        uint16 _rate
-    ) 
-        external 
-    {
-        
-    }
-
-    function loanDetail(address _from) external view {
-
-    }
-
-    function getLoans() external view returns(P2PLoan[]){
-        
-    }
+   
 }
