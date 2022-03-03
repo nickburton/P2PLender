@@ -90,6 +90,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "Contract with business logic ...",
 			"kind": "dev",
 			"methods": {
 				"owner()": {
@@ -102,6 +103,7 @@
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
+			"title": "Contract for lending against collateral.",
 			"version": 1
 		},
 		"userdoc": {
@@ -112,7 +114,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"localhost/P2PLoanFactory.sol": "P2PLoanFactory"
+			"P2PLoanFactory.sol": "P2PLoanFactory"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -142,12 +144,12 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"localhost/P2PLoanFactory.sol": {
-			"keccak256": "0x07e4edabb4dd129496a18468129caa6081e436b02e5e87d78e0886a38742d165",
+		"P2PLoanFactory.sol": {
+			"keccak256": "0x8db5d0a6cfe9b355e99cd246b5ace9bfbb37fd8669f6338ea0df00ed67159a57",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://c56063dbd56165f3c87f12f2c57947684f5953d0b94417f3420020b8fbebe2d2",
-				"dweb:/ipfs/QmWGS2ra5TEw3h85Gx3BGYULXyw8cyvE1h6qRfm5xtvnEN"
+				"bzz-raw://d2ec8b3d384bfe2f81d7dfe83df6218001077ab1b9c7ce149bf71f42e47ed18a",
+				"dweb:/ipfs/QmXKnvBCaoadG45VtRgA2bCDGRbAPxswCmXBqGjfQBuKM6"
 			]
 		}
 	},

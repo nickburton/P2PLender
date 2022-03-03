@@ -56,49 +56,6 @@
 				"type": "event"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "borrower",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "loanAmount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint16",
-						"name": "interestRate",
-						"type": "uint16"
-					}
-				],
-				"name": "approve",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "lend",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					}
-				],
-				"name": "loanDetail",
-				"outputs": [],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -109,34 +66,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint16",
-						"name": "interestRate",
-						"type": "uint16"
-					},
-					{
-						"internalType": "uint256",
-						"name": "loanAmount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "lender",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "borrower",
-						"type": "address"
-					}
-				],
-				"name": "proposeLoan",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -166,11 +95,6 @@
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
-				"proposeLoan(uint16,uint256,address,address)": {
-					"params": {
-						"interestRate": "Min is 0, Max is 10000 (100%)"
-					}
-				},
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
 				},
@@ -178,28 +102,18 @@
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
+			"title": "Helper contract to promote code reuse.",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {
-				"approve(address,uint256,uint16)": {
-					"notice": "Step 2: Lenders approve a borrower (funds not released until collateral submitted)."
-				},
-				"lend()": {
-					"notice": "Step 1: Lenders put funds into the contract."
-				},
-				"proposeLoan(uint16,uint256,address,address)": {
-					"notice": "For Borrower to initiate a Loan"
-				}
-			},
-			"notice": "Worker contract to read & write Loans balance to the chain.",
+			"methods": {},
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"P2PLender.sol": "P2PLender"
+			"P2PLoanHelper.sol": "P2PLoanHelper"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -227,14 +141,6 @@
 			"urls": [
 				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
-			]
-		},
-		"P2PLender.sol": {
-			"keccak256": "0x4d5bc6dd6413a30e91e07854d759d60c3cb292bdf3386f88303bc047b4d8d773",
-			"license": "UNLICENSED",
-			"urls": [
-				"bzz-raw://52381aa24535804d2b92d50be004a7af305a41b1a8ea1539673f8e90fca5a977",
-				"dweb:/ipfs/QmQtwvHDH96SKSPfPoNdFKAcABZEViLfQgMq269XgMjNL3"
 			]
 		},
 		"P2PLoanFactory.sol": {

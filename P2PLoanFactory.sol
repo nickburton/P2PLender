@@ -5,6 +5,10 @@ pragma solidity ^0.8.12;
 import "@openzeppelin/contracts/access/Ownable.sol";
 // import "hardhat/console.sol";
 
+/**
+ * @title Contract for lending against collateral.
+ * @dev Contract with business logic ...
+ */
 contract P2PLoanFactory is Ownable {
         
     enum Status {Pending, Approved, Loaned, Abandoned, Repaid}
@@ -20,9 +24,22 @@ contract P2PLoanFactory is Ownable {
 
     P2PLoan[] private loans;
     mapping(address => uint) lenderToLoanId;  
-
     event NewP2PLoan(uint16 interestRate, uint loanAmount, address indexed lender, address indexed borrower);
+
+    mapping(address => uint) balances;
+    mapping(address => mapping(address => P2PLoan)) approved;
+
     
+    
+    function _recieveFrom(address lender, uint loanAmount) internal {
+        balances[lender] = loanAmount;
+    }
+
+    function _approve(address borrower, address lender, uint loanAmount, uint16 interestRate) internal {
+        // approved[msg.sender][borrower] = numTokens;
+        // emit Approval(msg.sender, delegate, numTokens);
+    }
+
     function _createLoan(uint16 interestRate, uint256 loanAmount, address lender, address borrower) internal {
         require(interestRate >= 0 && interestRate <= 10000, "Interest Rate must be between 0% and 100% (0 and 10000).");
         require(loanAmount >= 0, "The loaned amount must be more than 0.");
