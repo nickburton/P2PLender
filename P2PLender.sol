@@ -5,26 +5,28 @@ pragma solidity ^0.8.12;
 import "./P2PLoanFactory.sol";
 
 /**
- * @notice Worker contract to read & write Loans balance to the chain.
+ * @notice Protocol for collateralized peer-to-peer lending.
  */
 contract P2PLender is P2PLoanFactory {
 
-    event Lent(address indexed lender, uint loanAmount);
+    event Lending(address indexed lender, uint loanAmount);
     event Approved(address indexed lender, address indexed borrower, uint loanAmount, uint16 interestRate);
-    event Collateralized(address indexed lender, address indexed borrower, uint loanAmount);
+    event Collateralized(address indexed lender, address indexed borrower, uint collateral);
     event Borrowed(address indexed borrower, uint loanAmount);
     
     /**
-    * @notice tep 1: Lenders put funds into the contract.
+    * @notice Step 1: Lenders put funds in the contract.
     */ 
     function lend() external payable {
         _lend(msg.sender, msg.value); 
-        emit Lent(msg.sender, msg.value);
+        emit Lending(msg.sender, msg.value);
     }
 
     /**
-    * @notice Step 2: Lenders approve a borrower (funds not released until collateral submitted).
-    * @param interestRate expressed as an integer, only whole numbers 0-100
+    * @notice Step 2: Lenders approve a borrower (note: funds are not released until collateral is submitted).
+    *
+    * @param loanAmount is expressed as an integer, for now only dollars and no cents
+    * @param interestRate is expressed as an integer, for now only whole rate 0-100
     */ 
     function approve(address borrower, uint loanAmount, uint16 interestRate) external {
         _approve(msg.sender, borrower, loanAmount, interestRate); 
@@ -47,6 +49,4 @@ contract P2PLender is P2PLoanFactory {
         emit Borrowed(msg.sender, loanAmount);
     }
 
-    
-   
 }

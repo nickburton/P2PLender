@@ -59,7 +59,6 @@
 			}
 		],
 		"devdoc": {
-			"details": "Contract with business logic ...",
 			"kind": "dev",
 			"methods": {
 				"owner()": {
@@ -72,7 +71,7 @@
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
-			"title": "Contract for lending against collateral.",
+			"title": "Base contract that reads & writes to the chain.",
 			"version": 1
 		},
 		"userdoc": {
@@ -114,11 +113,11 @@
 			]
 		},
 		"P2PLoanFactory.sol": {
-			"keccak256": "0xf648c64d8fe912affb471e4df42ca12498278892bf4e95ea60b181c4c0b18d0a",
+			"keccak256": "0xe72ab8d0b03256ca14b48b8b11a2bbcab6ede15ce1f0ae6c09a684c9df6c206e",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://e6621396e26473b2a5f7de532706c83bf2df82561cce9b3cdaf2ee44ac3fafb4",
-				"dweb:/ipfs/QmSMeBC5idaRboqs53hS3Z7vDSWCUzT5E4yknJyzhneYGf"
+				"bzz-raw://d20bfd1638e1284569570264a58b11f81bdab6fb347831f2c4050e4bcd6c7bb7",
+				"dweb:/ipfs/QmRX5CFiTyrNbHsZDXrjt6s5px7kTZWNieuRkWt8BfJGU6"
 			]
 		}
 	},

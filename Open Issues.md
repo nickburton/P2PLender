@@ -1,9 +1,14 @@
 Issues to Address
 
+0. Functions as constant?
+1. we need a whitelist for accepted tokens and a collateral weighting for each 
+0. Remove approvals after 
 1. A need for overcollateralization in case the locked up token goes down in value. 
 2. Re-entrance issue
 3. Upgradable contract https://medium.com/@maltabba/essential-design-consideration-for-ethereum-dapps-1-upgradeable-smart-contracts-b4fb21e1fd89
 4. Allow authorized return of funds (in case of emergencies)
+5. Consider issuing an ERC20 token as receipt of funds lent to the contract? 
+6. decimals in the loan amount or interest rate 
 
 
 4. Get solidity in Sublime https://techgeek628.medium.com/ethereum-solidity-language-syntax-in-sublime-7305e11e0fa9
@@ -24,40 +29,5 @@ function sell(uint256 amount) public {
 }
 
 
-mapping(address => uint256) balances;
-mapping(address => mapping (address => uint256)) approved;
-		^^^ msg.sender 		^^^ borrower	^^^
-
-mapping(address => mapping (address => P2PLoan)) approved;
-
-
-Step 1: Lend Funds
-
-lend() external payable {
-	uint256 loanAmount = msg.value;
-}
-
-Step 2: Approve Borrower
-
-function approve(address borrower, uint256 numTokens) public override returns (bool) {
-        allowed[msg.sender][borrower] = numTokens;
-        emit Approval(msg.sender, delegate, numTokens);
-        return true;
-    }
-
-
-Step 3: Submit Collateral
-
-	
-
-
-Step 4: Borrow Funds
-
-function borrow() {
-	uint256 withdrawable = balances.withdrawable(msg.sender, address(this)); // check this out
-	balances.transferFrom(msg.sender, address(this), amount); // update our contract balance
-    msg.sender.transfer(amount); // transfer to the borrower
-    emite Borrowed(Address or LoanId, amount);
-}
 
 

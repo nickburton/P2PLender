@@ -9,13 +9,13 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
 						"name": "lender",
 						"type": "address"
 					},
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
 						"name": "borrower",
 						"type": "address"
@@ -40,7 +40,7 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
 						"name": "borrower",
 						"type": "address"
@@ -53,6 +53,50 @@
 					}
 				],
 				"name": "Borrowed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "lender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "collateral",
+						"type": "uint256"
+					}
+				],
+				"name": "Collateralized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "lender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "loanAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Lending",
 				"type": "event"
 			},
 			{
@@ -105,6 +149,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
+					}
+				],
+				"name": "collateralize",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "lend",
 				"outputs": [],
@@ -150,7 +207,8 @@
 			"methods": {
 				"approve(address,uint256,uint16)": {
 					"params": {
-						"interestRate": "expressed as an integer, only whole numbers 0-100"
+						"interestRate": "is expressed as an integer, for now only whole rate 0-100",
+						"loanAmount": "is expressed as an integer, for now only dollars and no cents"
 					}
 				},
 				"owner()": {
@@ -169,16 +227,19 @@
 			"kind": "user",
 			"methods": {
 				"approve(address,uint256,uint16)": {
-					"notice": "Step 2: Lenders approve a borrower (funds not released until collateral submitted)."
+					"notice": "Step 2: Lenders approve a borrower (note: funds are not released until collateral is submitted)."
 				},
 				"borrow()": {
 					"notice": "Step 4: Borrower withdraws funds."
 				},
+				"collateralize(address)": {
+					"notice": "Step 3: Borrower submits collateral in the form of any ERC20 token. "
+				},
 				"lend()": {
-					"notice": "tep 1: Lenders put funds into the contract."
+					"notice": "Step 1: Lenders put funds in the contract."
 				}
 			},
-			"notice": "Worker contract to read & write Loans balance to the chain.",
+			"notice": "Protocol for collateralized peer-to-peer lending.",
 			"version": 1
 		}
 	},
@@ -215,19 +276,19 @@
 			]
 		},
 		"P2PLender.sol": {
-			"keccak256": "0xbcd8fa2aeefcd73e4c4d59a48b4ea596caf1e2c6ec7073cb748f131765ad6f0e",
+			"keccak256": "0x1696839a0c6464937441bf646b7bdf8d371f42c9b17a016d5bff5f2d484075e8",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://58f0046c63a9b5d08963d0f48671d70adad11800e6f8cbb657acc54ed505632f",
-				"dweb:/ipfs/QmekwdyDeTXrYKLC9hNmn9nh7YJ1jf3LX9gNqsb4kFEECt"
+				"bzz-raw://a9b8588efa973750c2068f51118feb40588fa4a41799a6ae56bd9f546d2b89a6",
+				"dweb:/ipfs/QmQs2d2LjMY8ksEQcsfeoubyd1Xo8PWLdQdx5v1qkSiwYN"
 			]
 		},
 		"P2PLoanFactory.sol": {
-			"keccak256": "0xd0f5bbf5d5fbaf91b1eb1f547e32d4328f9c9ab1096edf6effa9e659d41be02b",
+			"keccak256": "0xe72ab8d0b03256ca14b48b8b11a2bbcab6ede15ce1f0ae6c09a684c9df6c206e",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://e7cd131f262a9af25b71f8f90d37d9bd0aacc5e9ade3204d16a60b9240aeb28a",
-				"dweb:/ipfs/QmPziVy8kGREyEm8JuBvua7ACMGXbkmKkYNizpLfGCEAmW"
+				"bzz-raw://d20bfd1638e1284569570264a58b11f81bdab6fb347831f2c4050e4bcd6c7bb7",
+				"dweb:/ipfs/QmRX5CFiTyrNbHsZDXrjt6s5px7kTZWNieuRkWt8BfJGU6"
 			]
 		}
 	},
