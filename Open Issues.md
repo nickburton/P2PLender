@@ -1,4 +1,4 @@
-Issues / Questions to Address
+# Issues / Questions to Address
 
 1. Functions with constant as modifier?
 2. we need a whitelist for accepted tokens and a collateral weighting for each 
