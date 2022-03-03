@@ -233,7 +233,7 @@
 					"notice": "Step 4: Borrower withdraws funds."
 				},
 				"collateralize(address)": {
-					"notice": "Step 3: Borrower submits collateral in the form of any ERC20 token. "
+					"notice": "Step 3: Borrower submits collateral in the form of any whitelisted ERC20 token. "
 				},
 				"lend()": {
 					"notice": "Step 1: Lenders put funds in the contract."
@@ -276,11 +276,11 @@
 			]
 		},
 		"P2PLender.sol": {
-			"keccak256": "0x1696839a0c6464937441bf646b7bdf8d371f42c9b17a016d5bff5f2d484075e8",
+			"keccak256": "0xefc0241496f8e1c82a8c31ca9d696b62eae5858d952ad5d606f592d85728e0e7",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://a9b8588efa973750c2068f51118feb40588fa4a41799a6ae56bd9f546d2b89a6",
-				"dweb:/ipfs/QmQs2d2LjMY8ksEQcsfeoubyd1Xo8PWLdQdx5v1qkSiwYN"
+				"bzz-raw://91320c057565155da2b4839346286101494bd2bcbf46d9ec1f38ecee69e69458",
+				"dweb:/ipfs/QmNrL33GgXDepw91qPnL7McQ3TKeupzbkSfX8NSQ1Dcif3"
 			]
 		},
 		"P2PLoanFactory.sol": {

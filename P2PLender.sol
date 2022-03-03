@@ -34,17 +34,17 @@ contract P2PLender is P2PLoanFactory {
     }
 
     /**
-    * @notice Step 3: Borrower submits collateral in the form of any ERC20 token. 
+    * @notice Step 3: Borrower submits collateral in the form of any whitelisted ERC20 token. 
     */
     function collateralize(address borrower) external payable {
-
+        //TODO
     } 
 
     /**
     * @notice Step 4: Borrower withdraws funds.
     */ 
     function borrow() external {
-        uint256 loanAmount = _getBalanceApproval(msg.sender); // check this out
+        uint256 loanAmount = _getBalanceApproval(msg.sender);
         _borrow(payable(msg.sender), loanAmount);
         emit Borrowed(msg.sender, loanAmount);
     }
