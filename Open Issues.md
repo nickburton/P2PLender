@@ -9,3 +9,5 @@
 7. Allow authorized return of funds (in case of emergencies)
 8. Consider issuing an ERC20 token as receipt of funds lent to the contract? 
 9. Decimals in the loan amount or interest rate 
+10. How to revert functions on failure?
+11. What are the "well known issues around setting allowances?" https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol

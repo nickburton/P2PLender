@@ -61,12 +61,6 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "lender",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
 						"name": "borrower",
 						"type": "address"
 					},
@@ -75,6 +69,12 @@
 						"internalType": "uint256",
 						"name": "collateral",
 						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
 					}
 				],
 				"name": "Collateralized",
@@ -154,6 +154,21 @@
 						"internalType": "address",
 						"name": "borrower",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "collateral",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
 					}
 				],
 				"name": "collateralize",
@@ -207,8 +222,8 @@
 			"methods": {
 				"approve(address,uint256,uint16)": {
 					"params": {
-						"interestRate": "is expressed as an integer, for now only whole rate 0-100",
-						"loanAmount": "is expressed as an integer, for now only dollars and no cents"
+						"interestRate": "is expressed as an integer (for now only whole rates, 0-100)",
+						"loanAmount": "is expressed as an integer (for now only dollars and no cents)"
 					}
 				},
 				"owner()": {
@@ -232,7 +247,7 @@
 				"borrow()": {
 					"notice": "Step 4: Borrower withdraws funds."
 				},
-				"collateralize(address)": {
+				"collateralize(address,uint256,string,string)": {
 					"notice": "Step 3: Borrower submits collateral in the form of any whitelisted ERC20 token. "
 				},
 				"lend()": {
@@ -267,6 +282,30 @@
 				"dweb:/ipfs/QmXRoFGUgfsaRkoPT5bxNMtSayKTQ8GZATLPXf69HcRA51"
 			]
 		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xdadd41acb749920eccf40aeaa8d291adf9751399a7343561bad13e7a8d99be0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://12af4ac016f9fdf3be5d15824f4292272aa11f6b2e0192a0f7320f5ad49bbbf0",
+				"dweb:/ipfs/QmRXMpdqCgA3TYuYxBodqs5p9jGbnMW6xa2gvjppvq4TWk"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xbbc8ac883ac3c0078ce5ad3e288fbb3ffcc8a30c3a98c0fda0114d64fc44fca2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87a7a5d2f6f63f84598af02b8c50ca2df2631cb8ba2453e8d95fcb17e4be9824",
+				"dweb:/ipfs/QmR76hqtAcRqoFj33tmNjcWTLrgNsAaakYwnKZ8zoJtKei"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
 		"@openzeppelin/contracts/utils/Context.sol": {
 			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
 			"license": "MIT",
@@ -276,19 +315,19 @@
 			]
 		},
 		"P2PLender.sol": {
-			"keccak256": "0xefc0241496f8e1c82a8c31ca9d696b62eae5858d952ad5d606f592d85728e0e7",
+			"keccak256": "0xbb3cc7b2a71c35e9241e89cfa1a7c03e40586dbe3e84cee29b7769ff2e756047",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://91320c057565155da2b4839346286101494bd2bcbf46d9ec1f38ecee69e69458",
-				"dweb:/ipfs/QmNrL33GgXDepw91qPnL7McQ3TKeupzbkSfX8NSQ1Dcif3"
+				"bzz-raw://0b5a571cfac71b77469227685e79460d154303d98133331923ba77e6608106f8",
+				"dweb:/ipfs/QmPXe17LadrdbNRsQ8MH8wMmZFKs7cDVRagCCBDprsMaxN"
 			]
 		},
 		"P2PLoanFactory.sol": {
-			"keccak256": "0x2c9e80d8c602944f097f0a8d5f1c62d3df3076957d476e2de89b3f2189b42859",
+			"keccak256": "0x6aabe95990ca9cb8bac074dcacc843c7be12a65a7b16c3834aa0d9e845870784",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://e7465c9db7337e89c7ceffad38c56dc43d543a3ecb9ecf483a0b7b1bd8295784",
-				"dweb:/ipfs/QmR99xGm936izx18rTbwPHvTEZuZLoWSdj9BnHUGLfhQ7M"
+				"bzz-raw://c4644e50dd65c54eae2410dcf2788998e19f7b4aacee18d42806c79dba814cde",
+				"dweb:/ipfs/QmQtZXqajY2svUVFWi7mfuRtu4By5NZkEqJxgu8ABPETjM"
 			]
 		}
 	},
