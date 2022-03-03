@@ -10,9 +10,15 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "uint16",
-						"name": "interestRate",
-						"type": "uint16"
+						"internalType": "address",
+						"name": "lender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "borrower",
+						"type": "address"
 					},
 					{
 						"indexed": false,
@@ -21,19 +27,32 @@
 						"type": "uint256"
 					},
 					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "lender",
-						"type": "address"
-					},
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "interestRate",
+						"type": "uint16"
+					}
+				],
+				"name": "Approved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
 					{
-						"indexed": true,
+						"indexed": false,
 						"internalType": "address",
 						"name": "borrower",
 						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "loanAmount",
+						"type": "uint256"
 					}
 				],
-				"name": "NewP2PLoan",
+				"name": "Borrowed",
 				"type": "event"
 			},
 			{
@@ -80,22 +99,16 @@
 			},
 			{
 				"inputs": [],
-				"name": "lend",
+				"name": "borrow",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					}
-				],
-				"name": "loanDetail",
+				"inputs": [],
+				"name": "lend",
 				"outputs": [],
-				"stateMutability": "view",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -109,34 +122,6 @@
 					}
 				],
 				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint16",
-						"name": "interestRate",
-						"type": "uint16"
-					},
-					{
-						"internalType": "uint256",
-						"name": "loanAmount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "lender",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "borrower",
-						"type": "address"
-					}
-				],
-				"name": "proposeLoan",
-				"outputs": [],
-				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -163,13 +148,13 @@
 		"devdoc": {
 			"kind": "dev",
 			"methods": {
+				"approve(address,uint256,uint16)": {
+					"params": {
+						"interestRate": "expressed as an integer, only whole numbers 0-100"
+					}
+				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
-				},
-				"proposeLoan(uint16,uint256,address,address)": {
-					"params": {
-						"interestRate": "Min is 0, Max is 10000 (100%)"
-					}
 				},
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
@@ -186,11 +171,11 @@
 				"approve(address,uint256,uint16)": {
 					"notice": "Step 2: Lenders approve a borrower (funds not released until collateral submitted)."
 				},
-				"lend()": {
-					"notice": "Step 1: Lenders put funds into the contract."
+				"borrow()": {
+					"notice": "Step 4: Borrower withdraws funds."
 				},
-				"proposeLoan(uint16,uint256,address,address)": {
-					"notice": "For Borrower to initiate a Loan"
+				"lend()": {
+					"notice": "tep 1: Lenders put funds into the contract."
 				}
 			},
 			"notice": "Worker contract to read & write Loans balance to the chain.",
@@ -230,27 +215,19 @@
 			]
 		},
 		"P2PLender.sol": {
-			"keccak256": "0x4d5bc6dd6413a30e91e07854d759d60c3cb292bdf3386f88303bc047b4d8d773",
+			"keccak256": "0xbcd8fa2aeefcd73e4c4d59a48b4ea596caf1e2c6ec7073cb748f131765ad6f0e",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://52381aa24535804d2b92d50be004a7af305a41b1a8ea1539673f8e90fca5a977",
-				"dweb:/ipfs/QmQtwvHDH96SKSPfPoNdFKAcABZEViLfQgMq269XgMjNL3"
+				"bzz-raw://58f0046c63a9b5d08963d0f48671d70adad11800e6f8cbb657acc54ed505632f",
+				"dweb:/ipfs/QmekwdyDeTXrYKLC9hNmn9nh7YJ1jf3LX9gNqsb4kFEECt"
 			]
 		},
 		"P2PLoanFactory.sol": {
-			"keccak256": "0x8db5d0a6cfe9b355e99cd246b5ace9bfbb37fd8669f6338ea0df00ed67159a57",
+			"keccak256": "0xd0f5bbf5d5fbaf91b1eb1f547e32d4328f9c9ab1096edf6effa9e659d41be02b",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://d2ec8b3d384bfe2f81d7dfe83df6218001077ab1b9c7ce149bf71f42e47ed18a",
-				"dweb:/ipfs/QmXKnvBCaoadG45VtRgA2bCDGRbAPxswCmXBqGjfQBuKM6"
-			]
-		},
-		"P2PLoanHelper.sol": {
-			"keccak256": "0x66ca14565ab433e597884c1de570cf7edcf20e8103deb17fc7ca36227165ebd1",
-			"license": "UNLICENSED",
-			"urls": [
-				"bzz-raw://7297953324809b09d3007eb9a89d6d63002ec9e61d94688b7a9b6acc8eb4aab6",
-				"dweb:/ipfs/QmQ7vTV5YpVPtm89cHUJGUm6VPDv3tJbQQp41ShUy9WKhR"
+				"bzz-raw://e7cd131f262a9af25b71f8f90d37d9bd0aacc5e9ade3204d16a60b9240aeb28a",
+				"dweb:/ipfs/QmPziVy8kGREyEm8JuBvua7ACMGXbkmKkYNizpLfGCEAmW"
 			]
 		}
 	},

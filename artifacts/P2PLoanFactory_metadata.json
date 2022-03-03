@@ -9,37 +9,6 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
-						"internalType": "uint16",
-						"name": "interestRate",
-						"type": "uint16"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "loanAmount",
-						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "lender",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "borrower",
-						"type": "address"
-					}
-				],
-				"name": "NewP2PLoan",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
 						"indexed": true,
 						"internalType": "address",
 						"name": "previousOwner",
@@ -145,11 +114,11 @@
 			]
 		},
 		"P2PLoanFactory.sol": {
-			"keccak256": "0x8db5d0a6cfe9b355e99cd246b5ace9bfbb37fd8669f6338ea0df00ed67159a57",
+			"keccak256": "0xf648c64d8fe912affb471e4df42ca12498278892bf4e95ea60b181c4c0b18d0a",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://d2ec8b3d384bfe2f81d7dfe83df6218001077ab1b9c7ce149bf71f42e47ed18a",
-				"dweb:/ipfs/QmXKnvBCaoadG45VtRgA2bCDGRbAPxswCmXBqGjfQBuKM6"
+				"bzz-raw://e6621396e26473b2a5f7de532706c83bf2df82561cce9b3cdaf2ee44ac3fafb4",
+				"dweb:/ipfs/QmSMeBC5idaRboqs53hS3Z7vDSWCUzT5E4yknJyzhneYGf"
 			]
 		}
 	},
