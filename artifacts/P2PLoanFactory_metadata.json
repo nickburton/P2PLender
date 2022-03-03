@@ -113,11 +113,11 @@
 			]
 		},
 		"P2PLoanFactory.sol": {
-			"keccak256": "0xe72ab8d0b03256ca14b48b8b11a2bbcab6ede15ce1f0ae6c09a684c9df6c206e",
+			"keccak256": "0x2c9e80d8c602944f097f0a8d5f1c62d3df3076957d476e2de89b3f2189b42859",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://d20bfd1638e1284569570264a58b11f81bdab6fb347831f2c4050e4bcd6c7bb7",
-				"dweb:/ipfs/QmRX5CFiTyrNbHsZDXrjt6s5px7kTZWNieuRkWt8BfJGU6"
+				"bzz-raw://e7465c9db7337e89c7ceffad38c56dc43d543a3ecb9ecf483a0b7b1bd8295784",
+				"dweb:/ipfs/QmR99xGm936izx18rTbwPHvTEZuZLoWSdj9BnHUGLfhQ7M"
 			]
 		}
 	},

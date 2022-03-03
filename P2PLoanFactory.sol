@@ -16,7 +16,7 @@ contract P2PLoanFactory is Ownable {
     }
 
     mapping(address => uint) received;
-    mapping(address => P2PLoan) approved; ///@notice Maps approved Borrowers to their Lender and Loan 
+    mapping(address => P2PLoan) approved; ///@notice Maps approved Borrowers to their Lender & Loan 
 
     function _lend(address lender, uint loanAmount) internal {
         require(loanAmount > 0, "You need to send some ether");
@@ -30,12 +30,11 @@ contract P2PLoanFactory is Ownable {
     }
 
     function _collateralize() internal {
-        
+
     }
 
     function _borrow(address payable borrower, uint loanAmount) internal {
         require(loanAmount <= contractBalance(), "Not enough funds in the contract."); 
-        
         P2PLoan memory loan = approved[borrower];
         address lender = loan.lender;
         received[lender] -= loanAmount;
