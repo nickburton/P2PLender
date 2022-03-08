@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.11;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -20,8 +20,8 @@ contract P2PLoanFactory is Ownable {
         Status status;
     }
 
-    ///@notice Lenders to loans
-    mapping(address => uint) loans;
+    ///@notice Lenders to loaned amounts
+    mapping(address => uint) loaned;
     
     ///@notice Borrowers to collateral deposits
     mapping(address => uint) collateral;   
@@ -32,7 +32,7 @@ contract P2PLoanFactory is Ownable {
     function _lend(address lender, uint loanAmount) internal {
         require(loanAmount > 0, "You need to send some ether.");
         require(lender != address(0), "Lender can't be the zero address.");
-        loans[lender] = loanAmount;
+        loaned[lender] = loanAmount;
     }
 
     function _approve(address lender, address borrower, uint loanAmount, uint16 interestRate) internal {
